@@ -15,7 +15,6 @@
         }
 
         html {
-            /* Desfase para que el navbar fijo no tape el inicio de las secciones */
             scroll-padding-top: 90px;
         }
 
@@ -77,6 +76,10 @@
             100% { transform: scale(1); }
         }
         .pulse { animation: pulse-ws 2s infinite; }
+
+        .map-container:hover .map-overlay {
+            opacity: 0;
+        }
     </style>
 </head>
 <body class="bg-grid">
@@ -93,6 +96,7 @@
             <a href="#inicio" class="hover:text-amber-400 transition-colors">Inicio</a>
             <a href="#servicios" class="hover:text-amber-400 transition-colors">Servicios</a>
             <a href="#turno" class="hover:text-amber-400 transition-colors">Solicitar Turno</a>
+            <a href="#ubicacion" class="hover:text-amber-400 transition-colors">Ubicación</a>
         </div>
         <a href="tel:3515929043" class="bg-white/5 hover:bg-white/10 px-4 py-2 rounded-full text-xs font-bold border border-white/10 transition-all">
             LLAMAR AHORA
@@ -236,6 +240,49 @@
         <div class="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-amber-400/10 blur-[120px] rounded-full"></div>
     </section>
 
+    <!-- Map Section -->
+    <section id="ubicacion" class="py-24 bg-zinc-900/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="font-heading text-5xl mb-4">Nuestra <span class="text-amber-400">Ubicación</span></h2>
+                <p class="text-gray-400">Vení a visitarnos o traé tu vehículo para un presupuesto sin cargo.</p>
+            </div>
+            
+            <div class="max-w-5xl mx-auto">
+                <a href="https://maps.app.goo.gl/5MdzmPvMxeats4Zs9" target="_blank" class="block group relative rounded-[40px] overflow-hidden border border-white/10 shadow-2xl map-container">
+                    <!-- Representación Visual del Mapa -->
+                    <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=1600" alt="Mapa de Ubicación" class="w-full h-[450px] object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale-[0.5] brightness-[0.6]">
+                    
+                    <!-- Overlay de información -->
+                    <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/40 group-hover:bg-black/20 transition-all duration-500 map-overlay">
+                        <div class="bg-amber-400 p-4 rounded-full mb-4 shadow-[0_0_30px_rgba(251,191,36,0.5)]">
+                            <i data-lucide="map-pin" class="text-black w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-3xl font-heading tracking-widest text-white mb-2 uppercase italic">Abrir en Google Maps</h3>
+                        <p class="text-amber-400 font-bold tracking-widest text-sm bg-black/50 px-4 py-1 rounded-full border border-amber-400/30">CÓRDOBA, ARGENTINA</p>
+                    </div>
+
+                    <!-- Pincelada decorativa -->
+                    <div class="absolute bottom-6 left-6 right-6 p-6 glass-card rounded-2xl flex flex-col md:flex-row justify-between items-center gap-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-amber-400 rounded-full flex items-center justify-center">
+                                <i data-lucide="navigation" class="text-black w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs uppercase tracking-widest text-gray-400 font-bold">Dirección</p>
+                                <p class="text-lg font-semibold">Taller Samuel - Tucu</p>
+                            </div>
+                        </div>
+                        <button class="bg-amber-400 text-black px-6 py-2 rounded-xl font-bold uppercase text-xs tracking-widest flex items-center gap-2 group-hover:scale-110 transition-transform">
+                            Cómo llegar
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="py-12 border-t border-white/5 bg-[#080808]">
         <div class="container mx-auto px-6 grid md:grid-cols-3 gap-12 items-center">
@@ -252,7 +299,7 @@
                 <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber-400 hover:text-black transition-all">
                     <i data-lucide="instagram" class="w-5 h-5"></i>
                 </a>
-                <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber-400 hover:text-black transition-all">
+                <a href="https://maps.app.goo.gl/5MdzmPvMxeats4Zs9" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber-400 hover:text-black transition-all">
                     <i data-lucide="map-pin" class="w-5 h-5"></i>
                 </a>
             </div>
