@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller Mecánico Samuel - Tucu | Servicio Profesional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #fbbf24; /* Amarillo Hazard */
+            --dark: #0f0f0f;
+            --surface: #1a1a1a;
+        }
+
+        html {
+            /* Desfase para que el navbar fijo no tape el inicio de las secciones */
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .font-heading {
+            font-family: 'Bebas Neue', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(251, 191, 36, 0.1);
+        }
+
+        .input-field {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus {
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.08);
+            outline: none;
+            box-shadow: 0 0 15px rgba(251, 191, 36, 0.2);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: black;
+            font-weight: 800;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(251, 191, 36, 0.5);
+            filter: brightness(1.1);
+        }
+
+        .bg-grid {
+            background-image: radial-gradient(rgba(251, 191, 36, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(15,15,15,0) 0%, rgba(15,15,15,1) 100%);
+        }
+        
+        @keyframes pulse-ws {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .pulse { animation: pulse-ws 2s infinite; }
+    </style>
+</head>
+<body class="bg-grid">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 px-6 py-4 flex justify-between items-center glass-card border-b border-white/5 transition-all duration-300">
+        <div class="flex items-center gap-2">
+            <div class="bg-amber-400 p-1.5 rounded-lg">
+                <i data-lucide="wrench" class="text-black w-6 h-6"></i>
+            </div>
+            <span class="font-heading text-2xl tracking-wider">SAMUEL <span class="text-amber-400">- TUCU</span></span>
+        </div>
+        <div class="hidden md:flex gap-8 font-semibold text-sm uppercase tracking-widest text-gray-400">
+            <a href="#inicio" class="hover:text-amber-400 transition-colors">Inicio</a>
+            <a href="#servicios" class="hover:text-amber-400 transition-colors">Servicios</a>
+            <a href="#turno" class="hover:text-amber-400 transition-colors">Solicitar Turno</a>
+        </div>
+        <a href="tel:3515929043" class="bg-white/5 hover:bg-white/10 px-4 py-2 rounded-full text-xs font-bold border border-white/10 transition-all">
+            LLAMAR AHORA
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1486006396123-c775071a357e?auto=format&fit=crop&q=80&w=2000" alt="Taller Mecánico" class="w-full h-full object-cover opacity-30 grayscale">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="inline-block px-4 py-1 rounded-full bg-amber-400/10 text-amber-400 text-xs font-bold tracking-widest mb-6 border border-amber-400/20 uppercase">
+                    Mecánica de Precisión en Córdoba
+                </span>
+                <h1 class="font-heading text-6xl md:text-8xl mb-6 leading-tight uppercase">
+                    Tu Vehículo en <br> <span class="text-amber-400 italic">Buenas Manos.</span>
+                </h1>
+                <p class="text-gray-400 text-lg md:text-xl max-w-lg mb-10 leading-relaxed">
+                    Diagnóstico computarizado, mecánica integral y mantenimiento preventivo con estándares de alta gama. Rapidez y transparencia en cada reparación.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#turno" class="btn-primary px-8 py-4 rounded-xl flex items-center justify-center gap-3">
+                        RESERVAR TURNO ONLINE
+                        <i data-lucide="calendar-plus" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#servicios" class="bg-white/5 hover:bg-white/10 px-8 py-4 rounded-xl flex items-center justify-center gap-3 border border-white/10 transition-all">
+                        NUESTROS SERVICIOS
+                    </a>
+                </div>
+            </div>
+
+            <div class="hidden lg:block relative">
+                <div class="absolute -inset-4 bg-amber-400/20 blur-3xl rounded-full"></div>
+                <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=80&w=800" alt="Motor de alta gama" class="relative rounded-2xl border border-white/10 shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="py-24 bg-[#0a0a0a]">
+        <div class="container mx-auto px-6 text-center mb-16">
+            <h2 class="font-heading text-5xl mb-4">Mantenimiento <span class="text-amber-400">Integral</span></h2>
+            <p class="text-gray-500">Equipamiento de última generación para todas las marcas.</p>
+        </div>
+
+        <div class="container mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="glass-card p-8 rounded-3xl hover:border-amber-400/40 transition-all group">
+                <div class="w-12 h-12 bg-amber-400/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-amber-400 transition-all">
+                    <i data-lucide="cpu" class="text-amber-400 w-6 h-6 group-hover:text-black"></i>
+                </div>
+                <h3 class="font-heading text-2xl mb-3">Diagnóstico Scan</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Detección de fallas electrónica con scanner multimarca actualizado.</p>
+            </div>
+            <div class="glass-card p-8 rounded-3xl hover:border-amber-400/40 transition-all group">
+                <div class="w-12 h-12 bg-amber-400/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-amber-400 transition-all">
+                    <i data-lucide="settings-2" class="text-amber-400 w-6 h-6 group-hover:text-black"></i>
+                </div>
+                <h3 class="font-heading text-2xl mb-3">Motor e Inyección</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Ajuste técnico, limpieza de inyectores y reparaciones mayores de motor.</p>
+            </div>
+            <div class="glass-card p-8 rounded-3xl hover:border-amber-400/40 transition-all group">
+                <div class="w-12 h-12 bg-amber-400/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-amber-400 transition-all">
+                    <i data-lucide="disc" class="text-amber-400 w-6 h-6 group-hover:text-black"></i>
+                </div>
+                <h3 class="font-heading text-2xl mb-3">Frenos y Suspensión</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Seguridad total en el frenado y confort en el andar de tu vehículo.</p>
+            </div>
+            <div class="glass-card p-8 rounded-3xl hover:border-amber-400/40 transition-all group">
+                <div class="w-12 h-12 bg-amber-400/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-amber-400 transition-all">
+                    <i data-lucide="droplet" class="text-amber-400 w-6 h-6 group-hover:text-black"></i>
+                </div>
+                <h3 class="font-heading text-2xl mb-3">Service Rápido</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Cambio de aceite, filtros y chequeo de 25 puntos de seguridad.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section id="turno" class="py-24 relative overflow-hidden">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="glass-card p-8 md:p-12 rounded-[40px] relative z-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
+                    <div>
+                        <h2 class="font-heading text-4xl mb-2">Solicitar Diagnóstico</h2>
+                        <p class="text-gray-400">Completa el formulario y te contactaremos por WhatsApp.</p>
+                    </div>
+                    <div class="bg-amber-400/10 border border-amber-400/20 px-4 py-2 rounded-xl flex items-center gap-3">
+                        <div class="w-2 h-2 bg-green-500 rounded-full animate-ping"></div>
+                        <span class="text-amber-400 font-bold text-sm tracking-tighter uppercase italic">Taller Abierto</span>
+                    </div>
+                </div>
+
+                <form id="contactForm" class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <label class="block">
+                            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">Nombre Completo</span>
+                            <input type="text" id="nombre" required placeholder="Ej: Juan Perez" 
+                                class="w-full mt-2 p-4 rounded-xl input-field text-white">
+                        </label>
+                        <label class="block">
+                            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">WhatsApp de contacto</span>
+                            <input type="tel" id="telefono" required placeholder="Ej: 351xxxxxxx" 
+                                class="w-full mt-2 p-4 rounded-xl input-field text-white">
+                        </label>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <label class="block col-span-2 sm:col-span-1">
+                                <span class="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">Vehículo (Marca y Modelo)</span>
+                                <input type="text" id="vehiculo" required placeholder="Ej: VW Amarok" 
+                                    class="w-full mt-2 p-4 rounded-xl input-field text-white">
+                            </label>
+                            <label class="block col-span-2 sm:col-span-1">
+                                <span class="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">Año</span>
+                                <input type="number" id="anio" required placeholder="Ej: 2022" 
+                                    class="w-full mt-2 p-4 rounded-xl input-field text-white">
+                            </label>
+                        </div>
+                        <label class="block">
+                            <span class="text-xs font-bold text-gray-400 uppercase tracking-widest ml-1">Describe la falla</span>
+                            <textarea id="falla" required rows="3" placeholder="Ej: Ruido al frenar, pierde aceite..." 
+                                class="w-full mt-2 p-4 rounded-xl input-field text-white resize-none"></textarea>
+                        </label>
+                    </div>
+
+                    <div class="md:col-span-2 pt-4">
+                        <button type="button" onclick="sendWhatsApp()" class="w-full btn-primary py-5 rounded-2xl flex items-center justify-center gap-4 text-lg">
+                            ENVIAR PEDIDO POR WHATSAPP
+                            <i data-lucide="message-circle" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-amber-400/10 blur-[120px] rounded-full"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5 bg-[#080808]">
+        <div class="container mx-auto px-6 grid md:grid-cols-3 gap-12 items-center">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="bg-amber-400 p-1 rounded-lg">
+                        <i data-lucide="wrench" class="text-black w-5 h-5"></i>
+                    </div>
+                    <span class="font-heading text-xl tracking-wider uppercase italic">Samuel - <span class="text-amber-400">Tucu</span></span>
+                </div>
+            </div>
+            
+            <div class="flex justify-center gap-4">
+                <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber-400 hover:text-black transition-all">
+                    <i data-lucide="instagram" class="w-5 h-5"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber-400 hover:text-black transition-all">
+                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                </a>
+            </div>
+
+            <div class="text-right">
+                <p class="text-gray-400 font-bold mb-1">351 592 9043</p>
+                <p class="text-gray-600 text-xs uppercase tracking-widest">Córdoba, Argentina</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Button Mobile -->
+    <a href="https://wa.me/5493515929043" class="md:hidden fixed bottom-6 right-6 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-2xl z-50 pulse border-4 border-white/10">
+        <i data-lucide="message-circle" class="text-white w-8 h-8"></i>
+    </a>
+
+    <script>
+        lucide.createIcons();
+
+        function sendWhatsApp() {
+            const nombre = document.getElementById('nombre').value;
+            const telefono = document.getElementById('telefono').value;
+            const vehiculo = document.getElementById('vehiculo').value;
+            const anio = document.getElementById('anio').value;
+            const falla = document.getElementById('falla').value;
+
+            if (!nombre || !telefono || !vehiculo || !anio || !falla) {
+                alert("Por favor, completa todos los campos para enviarnos el pedido.");
+                return;
+            }
+
+            const phone = "5493515929043";
+            const message = 
+                `*NUEVO PEDIDO DE TURNO*%0A` +
+                `*Taller Samuel - Tucu*%0A%0A` +
+                `👤 *CLIENTE:* ${nombre}%0A` +
+                `📞 *TEL:* ${telefono}%0A%0A` +
+                `🚗 *VEHÍCULO:* ${vehiculo}%0A` +
+                `📅 *AÑO:* ${anio}%0A%0A` +
+                `⚠️ *FALLA:* ${falla}%0A%0A` +
+                `---%0A` +
+                `_Pedido enviado desde la web._`;
+
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+        }
+
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'bg-black/90', 'shadow-2xl');
+                nav.classList.remove('py-4');
+            } else {
+                nav.classList.remove('py-2', 'bg-black/90', 'shadow-2xl');
+                nav.classList.add('py-4');
+            }
+        });
+    </script>
+</body>
+</html>
