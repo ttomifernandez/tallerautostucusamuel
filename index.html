@@ -27,7 +27,6 @@
         .pulse { animation: pulse-ws 2s infinite; }
         .hidden-view { display: none; }
         
-        /* Colores por Estado */
         .status-Nuevo { color: #fbbf24; border-color: rgba(251,191,36,0.3); background: rgba(251,191,36,0.05); }
         .status-Contactado { color: #60a5fa; border-color: rgba(96,165,250,0.3); background: rgba(96,165,250,0.05); }
         .status-Presupuestado { color: #a855f7; border-color: rgba(168,85,247,0.3); background: rgba(168,85,247,0.05); }
@@ -36,7 +35,6 @@
         .status-Finalizado { color: #22c55e; border-color: rgba(34,197,94,0.3); background: rgba(34,197,94,0.05); }
         .status-Cancelado { color: #ef4444; border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.05); }
 
-        /* Toasts y Modales */
         #toast-container { pointer-events: none; }
         .toast { pointer-events: auto; transform: translateY(100px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .toast.show { transform: translateY(0); }
@@ -79,7 +77,7 @@
                 <div>
                     <span class="inline-block px-4 py-1 rounded-full bg-amber-400/10 text-amber-400 text-xs font-bold tracking-widest mb-6 border border-amber-400/20 uppercase">Mecánica Profesional</span>
                     <h1 class="font-heading text-6xl md:text-8xl mb-6 leading-tight uppercase">Diagnóstico de <br> <span class="text-amber-400 italic">Alta Gama.</span></h1>
-                    <p class="text-gray-400 text-lg md:text-xl max-w-lg mb-10 leading-relaxed">Expertos en Córdoba. Solicitá tu turno online y recibí un presupuesto directo por WhatsApp.</p>
+                    <p class="text-gray-400 text-lg md:text-xl max-w-lg mb-10 leading-relaxed">Especialistas en la zona de Circunvalación. Solicitá tu turno online y recibí atención prioritaria.</p>
                     <a href="#turno" class="btn-primary px-10 py-5 rounded-2xl inline-flex items-center gap-4 text-lg">RESERVAR TURNO ONLINE <i data-lucide="calendar-plus" class="w-6 h-6"></i></a>
                 </div>
             </div>
@@ -106,12 +104,18 @@
 
         <!-- Ubicación -->
         <section id="ubicacion" class="py-24 bg-[#0a0a0a] text-center border-t border-white/5">
-            <div class="container mx-auto px-6 max-w-3xl">
+            <div class="container mx-auto px-6 max-w-4xl">
                 <h2 class="font-heading text-5xl mb-4 uppercase">Ubicación</h2>
-                <div class="glass-card p-10 rounded-[40px]">
-                    <p class="text-amber-400 font-bold text-xl mb-2">Cabo Alfredo Alejandro Gonzalez 1547</p>
-                    <p class="text-gray-500 mb-8 uppercase tracking-widest text-xs">Córdoba, Argentina</p>
-                    <a href="https://maps.app.goo.gl/5MdzmPvMxeats4Zs9" target="_blank" class="btn-primary px-10 py-4 rounded-xl inline-flex items-center gap-3">ABRIR MAPS <i data-lucide="external-link" class="w-5 h-5"></i></a>
+                <div class="glass-card p-10 rounded-[40px] relative overflow-hidden">
+                    <div class="relative z-10">
+                        <p class="text-amber-400 font-bold text-xl mb-2 uppercase tracking-tight">Cabo Alfredo Alejandro Gonzalez 1547</p>
+                        <p class="text-gray-300 mb-2 font-medium">Esquina Río Coyle y Cincinnati</p>
+                        <p class="text-gray-500 mb-8 uppercase tracking-widest text-[10px] font-bold">A metros de Av. Circunvalación Agustín Tosco • Córdoba</p>
+                        <a href="https://maps.app.goo.gl/5MdzmPvMxeats4Zs9" target="_blank" class="btn-primary px-10 py-4 rounded-xl inline-flex items-center justify-center gap-3">
+                            <i data-lucide="navigation" class="w-5 h-5"></i>
+                            CÓMO LLEGAR
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -119,10 +123,10 @@
 
     <!-- VISTA: PANEL ADMIN -->
     <main id="view-admin" class="hidden-view pt-32 pb-24 container mx-auto px-6">
-        <div class="flex justify-between items-end mb-12">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
             <div>
                 <h2 class="font-heading text-6xl uppercase tracking-tighter">Panel de <span class="text-amber-400">Leads</span></h2>
-                <p class="text-gray-500 font-bold text-xs uppercase tracking-widest mt-2">Control de ingresos y estados</p>
+                <p class="text-gray-500 font-bold text-xs uppercase tracking-widest mt-2">Gestión de clientes en tiempo real</p>
             </div>
             <div class="flex gap-4">
                 <button onclick="switchView('landing')" class="bg-white/5 p-4 rounded-2xl hover:bg-white/10 border border-white/10 transition-all text-gray-400">
@@ -134,23 +138,27 @@
             </div>
         </div>
 
-        <div class="glass-card rounded-3xl overflow-hidden overflow-x-auto border border-white/5">
-            <table class="w-full text-left border-collapse">
-                <thead>
-                    <tr class="bg-white/5 text-gray-500 font-bold text-[10px] uppercase tracking-[0.2em]">
-                        <th class="p-6">Fecha</th>
-                        <th class="p-6">Cliente</th>
-                        <th class="p-6">Vehículo</th>
-                        <th class="p-6">Falla</th>
-                        <th class="p-6">Estado</th>
-                        <th class="p-6">Acción</th>
-                    </tr>
-                </thead>
-                <tbody id="admin-table-body" class="text-sm divide-y divide-white/5">
-                    <tr><td colspan="6" class="p-20 text-center text-gray-500 italic">Cargando base de datos...</td></tr>
-                </tbody>
-            </table>
+        <div class="glass-card rounded-3xl overflow-hidden border border-white/5">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse min-w-[800px]">
+                    <thead>
+                        <tr class="bg-white/5 text-gray-500 font-bold text-[10px] uppercase tracking-[0.2em]">
+                            <th class="p-6">Fecha</th>
+                            <th class="p-6">Cliente</th>
+                            <th class="p-6">Vehículo</th>
+                            <th class="p-6">Falla</th>
+                            <th class="p-6">Estado</th>
+                            <th class="p-6">Chat</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-table-body" class="text-sm divide-y divide-white/5">
+                        <tr><td colspan="6" class="p-20 text-center text-gray-500 italic">Cargando base de datos...</td></tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
+        
+        <div id="admin-error-debug" class="mt-8 p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-500 text-xs hidden"></div>
     </main>
 
     <!-- Modal de Administración -->
@@ -158,7 +166,6 @@
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeAdminModal()"></div>
         <div class="glass-card w-full max-w-md p-10 rounded-[32px] relative z-10 border-amber-400/20">
             <h3 class="font-heading text-4xl mb-6 text-center">Acceso Privado</h3>
-            <p class="text-gray-400 text-sm text-center mb-8">Ingresa la contraseña para gestionar los leads.</p>
             <input type="password" id="admin-pass-input" placeholder="Contraseña" class="w-full p-4 rounded-xl input-field text-white text-center mb-6 focus:ring-2 ring-amber-400/20">
             <div class="grid grid-cols-2 gap-4">
                 <button onclick="closeAdminModal()" class="py-4 rounded-xl bg-white/5 hover:bg-white/10 font-bold text-xs uppercase tracking-widest transition-all">Cancelar</button>
@@ -167,18 +174,11 @@
         </div>
     </div>
 
-    <!-- Contenedor de Notificaciones -->
     <div id="toast-container" class="fixed bottom-10 left-1/2 -translate-x-1/2 z-[100] space-y-4"></div>
 
-    <!-- Footer -->
     <footer class="py-12 border-t border-white/5 bg-[#080808] text-center text-gray-600 text-[10px] uppercase tracking-[0.4em]">
         © 2024 Taller Samuel - Córdoba
     </footer>
-
-    <!-- Floating WhatsApp -->
-    <a href="https://wa.me/5493515929043" target="_blank" class="fixed bottom-6 right-6 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-2xl z-50 pulse border-4 border-white/10">
-        <i data-lucide="message-circle" class="text-white w-8 h-8"></i>
-    </a>
 
     <script>
         lucide.createIcons();
@@ -186,19 +186,15 @@
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyndACTC8jyEUgHbX7C6Sl1GAQEebof6PKFiKrrjPHGNSF6KwglSaUVMrQ7PZuktKSw/exec"; 
         const ADMIN_PASS = "samuel2024";
 
-        // --- SISTEMA DE NOTIFICACIONES ---
         function showToast(message, type = 'success') {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
             toast.className = `toast glass-card px-8 py-4 rounded-2xl border-white/10 shadow-2xl flex items-center gap-4 text-sm font-semibold whitespace-nowrap`;
-            
             const color = type === 'success' ? 'text-green-500' : 'text-red-500';
             const icon = type === 'success' ? 'check-circle' : 'alert-circle';
-            
             toast.innerHTML = `<i data-lucide="${icon}" class="${color} w-5 h-5"></i> ${message}`;
             container.appendChild(toast);
             lucide.createIcons();
-            
             setTimeout(() => toast.classList.add('show'), 100);
             setTimeout(() => {
                 toast.classList.remove('show');
@@ -206,12 +202,10 @@
             }, 4000);
         }
 
-        // --- GESTIÓN DE VISTAS Y MODALES ---
         function switchView(view) {
             const landing = document.getElementById('view-landing');
             const admin = document.getElementById('view-admin');
             const navLinks = document.querySelector('.nav-links');
-
             if (view === 'admin') {
                 landing.classList.add('hidden-view');
                 admin.classList.remove('hidden-view');
@@ -244,16 +238,13 @@
             } else {
                 showToast("Contraseña incorrecta", "error");
                 input.value = '';
-                input.focus();
             }
         }
 
-        // Escuchar tecla Enter en el modal
         document.getElementById('admin-pass-input').addEventListener('keypress', (e) => {
             if (e.key === 'Enter') verifyAdminPass();
         });
 
-        // --- LÓGICA DE FORMULARIO ---
         async function processSubmission() {
             const nombre = document.getElementById('nombre').value;
             const telefono = document.getElementById('telefono').value;
@@ -268,7 +259,7 @@
             }
 
             btn.disabled = true;
-            btn.innerHTML = `<span>ENVIANDO...</span> <div class="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin"></div>`;
+            btn.innerHTML = `<span>ENVIANDO...</span>`;
 
             try {
                 const formData = new FormData();
@@ -280,12 +271,10 @@
                 formData.append('falla', falla);
                 formData.append('estado', 'Nuevo');
                 formData.append('fecha', new Date().toLocaleString('es-AR'));
+                
                 await fetch(SCRIPT_URL, { method: 'POST', body: formData });
                 showToast("Datos registrados correctamente");
-            } catch (e) { 
-                console.error(e);
-                showToast("Error al conectar con la base de datos", "error");
-            }
+            } catch (e) { console.error("Error al enviar:", e); }
 
             const message = `*NUEVO TURNO*%0A👤 *CLIENTE:* ${nombre}%0A🚗 *AUTO:* ${vehiculo} (${anio})%0A⚠️ *FALLA:* ${falla}`;
             window.open(`https://wa.me/5493515929043?text=${message}`, '_blank');
@@ -295,14 +284,23 @@
             document.getElementById('contactForm').reset();
         }
 
-        // --- LÓGICA DEL PANEL ADMIN ---
         async function fetchContacts() {
             const tableBody = document.getElementById('admin-table-body');
             const refreshIcon = document.getElementById('refresh-icon');
+            const debugDiv = document.getElementById('admin-error-debug');
+            
+            tableBody.innerHTML = `<tr><td colspan="6" class="p-20 text-center text-gray-500 italic">Cargando base de datos...</td></tr>`;
+            debugDiv.classList.add('hidden');
             refreshIcon.classList.add('animate-spin');
             
             try {
-                const response = await fetch(SCRIPT_URL);
+                const response = await fetch(SCRIPT_URL + "?t=" + Date.now(), {
+                    method: 'GET',
+                    redirect: 'follow'
+                });
+
+                if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+
                 const data = await response.json();
                 
                 if (data.length === 0) {
@@ -313,18 +311,21 @@
                         const statuses = ["Nuevo", "Contactado", "Presupuestado", "Turno", "Reparacion", "Finalizado", "Cancelado"];
                         const options = statuses.map(s => `<option value="${s}" ${contact.estado === s ? 'selected' : ''}>${s}</option>`).join('');
 
+                        // FIX: Forzamos el telefono a String antes de limpiar caracteres
+                        const telStr = String(contact.telefono || "").replace(/\D/g,'');
+
                         return `
                             <tr class="hover:bg-white/[0.02] transition-colors border-b border-white/5 last:border-0">
                                 <td class="p-6 text-gray-500 font-mono text-[10px] whitespace-nowrap">${contact.fecha || '-'}</td>
                                 <td class="p-6">
-                                    <p class="font-bold text-white text-base">${contact.nombre}</p>
-                                    <p class="text-amber-400 text-xs">${contact.telefono}</p>
+                                    <p class="font-bold text-white text-base">${contact.nombre || "Sin nombre"}</p>
+                                    <p class="text-amber-400 text-xs">${contact.telefono || "Sin tel"}</p>
                                 </td>
                                 <td class="p-6">
-                                    <p class="text-gray-300 font-semibold">${contact.vehiculo}</p>
-                                    <p class="text-gray-600 text-xs">${contact.anio}</p>
+                                    <p class="text-gray-300 font-semibold">${contact.vehiculo || "-"}</p>
+                                    <p class="text-gray-600 text-xs">${contact.anio || ""}</p>
                                 </td>
-                                <td class="p-6 text-gray-400 max-w-xs truncate" title="${contact.falla}">${contact.falla}</td>
+                                <td class="p-6 text-gray-400 max-w-xs truncate" title="${contact.falla}">${contact.falla || "-"}</td>
                                 <td class="p-6">
                                     <select onchange="updateStatus(${realRowIndex}, this.value)" 
                                         class="bg-transparent border border-white/10 rounded-lg px-2 py-1 text-xs font-bold status-${contact.estado} outline-none cursor-pointer">
@@ -332,7 +333,7 @@
                                     </select>
                                 </td>
                                 <td class="p-6 text-center">
-                                    <a href="https://wa.me/549${contact.telefono.replace(/\D/g,'')}" target="_blank" class="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center text-green-500 hover:bg-green-500 hover:text-white transition-all mx-auto shadow-lg shadow-green-500/5">
+                                    <a href="https://wa.me/549${telStr}" target="_blank" class="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center text-green-500 hover:bg-green-500 hover:text-white transition-all mx-auto">
                                         <i data-lucide="message-circle" class="w-5 h-5"></i>
                                     </a>
                                 </td>
@@ -342,7 +343,10 @@
                 }
                 lucide.createIcons();
             } catch (e) {
-                tableBody.innerHTML = `<tr><td colspan="6" class="p-20 text-center text-red-500">Error al cargar datos. Verifica la conexión.</td></tr>`;
+                console.error("Error al cargar:", e);
+                tableBody.innerHTML = `<tr><td colspan="6" class="p-20 text-center text-red-500">Error al cargar datos. Verifica la conexión o permisos del script.</td></tr>`;
+                debugDiv.innerText = `DEBUG: ${e.message}`;
+                debugDiv.classList.remove('hidden');
             } finally {
                 refreshIcon.classList.remove('animate-spin');
             }
@@ -355,11 +359,11 @@
                 formData.append('rowIndex', rowIndex);
                 formData.append('status', newStatus);
                 await fetch(SCRIPT_URL, { method: 'POST', body: formData });
-                showToast(`Estado actualizado a ${newStatus}`);
+                showToast(`Estado: ${newStatus}`);
                 fetchContacts();
             } catch (e) { 
                 console.error(e);
-                showToast("No se pudo actualizar el estado", "error");
+                showToast("Error al actualizar", "error");
             }
         }
 
